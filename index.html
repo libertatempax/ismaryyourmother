@@ -422,7 +422,7 @@ footer a { color: var(--ink); text-decoration: none; } footer a:hover { color: v
 /* ---- Settings for the live site ----
    EMAIL_FORM_ACTION: the form URL from your email service (MailerLite, Kit/ConvertKit, Mailchimp).
    Leave empty in the Claude preview. */
-const EMAIL_FORM_ACTION = "";
+const EMAIL_FORM_ACTION = "https://assets.mailerlite.com/jsonp/2777919/forms/203521925988747216/subscribe";
 const CHAPTER_URL = "chapter-1.pdf";
 const POPUP_DELAY_MS = 6000;
 
@@ -446,7 +446,7 @@ document.getElementById('signup-form').addEventListener('submit', async (e) => {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = 'Please enter a valid email address.'; err.hidden = false; return; }
   err.hidden = true;
   if (EMAIL_FORM_ACTION) {
-    try { await fetch(EMAIL_FORM_ACTION, { method: 'POST', mode: 'no-cors', body: new URLSearchParams({ email, first_name: name, 'fields[email]': email, 'fields[name]': name }) }); } catch (e2) {}
+    try { await fetch(EMAIL_FORM_ACTION, { method: 'POST', mode: 'no-cors', body: new URLSearchParams({ 'fields[email]': email, 'fields[name]': name, 'ml-submit': '1', 'anticsrf': 'true' }) }); } catch (e2) {}
   }
   try { localStorage.setItem('imym_popup_seen', '1'); } catch (e3) {}
   document.getElementById('signup-form-wrap').hidden = true;
@@ -541,7 +541,7 @@ document.getElementById('series-form').addEventListener('submit', async (e) => {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = 'Please enter a valid email address.'; err.hidden = false; return; }
   err.hidden = true;
   if (EMAIL_FORM_ACTION) {
-    try { await fetch(EMAIL_FORM_ACTION, { method: 'POST', mode: 'no-cors', body: new URLSearchParams({ email, 'fields[email]': email, editions: editions.join(', '), 'fields[editions]': editions.join(', ') }) }); } catch (e2) {}
+    try { await fetch(EMAIL_FORM_ACTION, { method: 'POST', mode: 'no-cors', body: new URLSearchParams({ 'fields[email]': email, 'fields[editions]': editions.join(', '), 'ml-submit': '1', 'anticsrf': 'true' }) }); } catch (e2) {}
   }
   document.querySelector('#series-form .series-row').hidden = true;
   document.querySelector('#series-form .checks').hidden = true;
