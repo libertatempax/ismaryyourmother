@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Is Mary Your Mother?</title>
+<meta name="description" content="Mary is your Mother. Can you prove it from Scripture without assuming it first? Is Mary Your Mother? by Mark Riese reads Genesis 3:15 and Revelation 12 as one story.">
+<meta property="og:type" content="book">
+<meta property="og:title" content="Is Mary Your Mother?">
+<meta property="og:description" content="Mary is your Mother. Can you prove it from Scripture without assuming it first? This book does.">
+<meta property="og:image" content="cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="cover.jpg">
+</head>
+<body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,700;0,800;1,500;1,700&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: one column of stacked bands like a book's own pages: cover hero, the problem, four readings, who it's for, a line from the book, the author, closing call, footer. Palette taken from the cover: cream paper, navy title ink, gilt-brown subtitle, ochre and dusty-blue watercolor. */
+:root {
+  --paper: #f7f1e5;
+  --paper-2: #efe5d1;
+  --card: #fffaf0;
+  --ink: #1e2b4a;
+  --muted: #55607a;
+  --gilt: #8b6422;
+  --ochre: #d8b778;
+  --wash-blue: #9fb2d3;
+  --rule: #e0d3b8;
+  --btn-ink: #fffaf0;
+  --f-display: "EB Garamond", Garamond, Georgia, serif;
+  --f-body: "EB Garamond", Garamond, Georgia, serif;
+  --f-ui: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #131a2c; --paper-2: #18213a; --card: #1c2642; --ink: #ede5d3; --muted: #aab3c9;
+  --gilt: #dcb46a; --ochre: #8a6a35; --wash-blue: #334a76; --rule: #2c3858; --btn-ink: #131a2c; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #131a2c; --paper-2: #18213a; --card: #1c2642; --ink: #ede5d3; --muted: #aab3c9;
+  --gilt: #dcb46a; --ochre: #8a6a35; --wash-blue: #334a76; --rule: #2c3858; --btn-ink: #131a2c; color-scheme: dark }
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 19px; line-height: 1.6; }
+.band { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 72px; }
+.inner { max-width: 1040px; margin: 0 auto; }
+.narrow { max-width: 680px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; color: var(--ink); }
+h1 { font-size: clamp(2.3rem, 5.4vw, 3.6rem); font-weight: 800; line-height: 1.05; letter-spacing: -0.005em; }
+h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); font-weight: 700; line-height: 1.15; margin-bottom: 16px; }
+h3 { font-size: 1.35rem; font-weight: 700; line-height: 1.2; }
+p { margin: 0 0 14px; }
+.eyebrow { font-family: var(--f-ui); font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--gilt); font-weight: 600; margin-bottom: 12px; }
+.star-rule { display: flex; align-items: center; gap: 12px; color: var(--gilt); margin: 18px 0; max-width: 320px; }
+.star-rule::before, .star-rule::after { content: ""; height: 1px; background: var(--gilt); flex: 1; opacity: .7; }
+a { color: var(--gilt); }
+.btn { display: inline-block; font-family: var(--f-ui); font-weight: 600; font-size: 16px; padding: 13px 24px; border-radius: 3px; text-decoration: none; border: 1.5px solid var(--ink); cursor: pointer; }
+.btn-primary { background: var(--ink); color: var(--btn-ink); }
+.btn-primary:hover { background: var(--gilt); border-color: var(--gilt); }
+.btn-ghost { background: transparent; color: var(--ink); }
+.btn-ghost:hover { border-color: var(--gilt); color: var(--gilt); }
+.btn:focus-visible, button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid var(--gilt); outline-offset: 2px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+
+/* header */
+header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--rule); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper); }
+.nav { max-width: 1040px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; flex-wrap: wrap; }
+.brand { font-family: var(--f-display); font-weight: 800; font-size: 1.25rem; color: var(--ink); text-decoration: none; }
+.nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+.nav ul a { font-family: var(--f-ui); font-size: 15px; color: var(--ink); text-decoration: none; }
+.nav ul a:hover { color: var(--gilt); }
+
+/* hero */
+.hero { background:
+  radial-gradient(38% 45% at 8% 20%, color-mix(in srgb, var(--ochre) 55%, transparent), transparent 70%),
+  radial-gradient(30% 40% at 92% 85%, color-mix(in srgb, var(--wash-blue) 50%, transparent), transparent 70%),
+  radial-gradient(25% 30% at 70% 8%, color-mix(in srgb, var(--ochre) 35%, transparent), transparent 70%),
+  var(--paper); }
+.hero .inner { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; }
+.hero .inner > * { min-width: 0; }
+.cover-wrap { text-align: center; }
+.cover { display: inline-block; width: 100%; max-width: 360px; height: auto; border-radius: 4px; box-shadow: 0 18px 40px rgba(30,43,74,.28), 0 2px 6px rgba(30,43,74,.2); }
+.badge { display: inline-block; font-family: var(--f-ui); font-size: 13px; font-weight: 600; letter-spacing: .04em; color: var(--gilt); border: 1px solid var(--gilt); border-radius: 999px; padding: 4px 12px; margin-bottom: 18px; }
+.hero .lede { font-size: 1.35rem; font-style: italic; color: var(--gilt); font-weight: 500; margin-top: 18px; line-height: 1.35; }
+.hero .lede b { font-style: normal; color: var(--ink); font-weight: 700; }
+.textlink { font-family: var(--f-ui); font-size: 15px; margin-top: 16px; display: inline-block; }
+
+/* problem */
+.problem { background: var(--paper-2); }
+.verses { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 26px 0; }
+.verse { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 18px 20px; }
+.verse q { font-size: 1.3rem; font-style: italic; display: block; quotes: "\201C" "\201D"; }
+.verse cite { font-family: var(--f-ui); font-style: normal; font-size: 14px; color: var(--muted); display: block; margin-top: 6px; }
+.verse .tag { font-family: var(--f-ui); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--gilt); font-weight: 600; margin-top: 10px; display: block; }
+
+/* four readings */
+.readings { display: grid; gap: 0; margin-top: 30px; border-top: 1px solid var(--rule); }
+.reading { display: grid; grid-template-columns: 92px 1fr; gap: 20px; padding: 26px 0; border-bottom: 1px solid var(--rule); }
+.reading > * { min-width: 0; }
+.num { font-family: var(--f-display); font-size: 3.2rem; font-weight: 800; color: var(--gilt); line-height: 1; }
+.reading .label { font-family: var(--f-ui); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: 4px; }
+.reading p { margin: 8px 0 0; color: var(--ink); }
+.conclusion { font-family: var(--f-display); font-size: 1.6rem; font-weight: 700; margin-top: 28px; }
+.conclusion em { color: var(--gilt); }
+
+/* who for */
+.who { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; margin-top: 22px; }
+.who div { border-left: 2px solid var(--gilt); padding: 4px 0 4px 16px; }
+.who b { display: block; font-size: 1.15rem; }
+
+/* test */
+.test { background: var(--paper-2); }
+.quiz { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 28px; margin-top: 18px; }
+.quiz .q { font-size: 1.25rem; margin-bottom: 16px; }
+.opts { display: grid; gap: 10px; }
+.opt { text-align: left; font-family: var(--f-body); font-size: 1.1rem; background: transparent; color: var(--ink); border: 1px solid var(--rule); border-radius: 4px; padding: 12px 16px; cursor: pointer; }
+.opt:hover { border-color: var(--gilt); }
+.opt[aria-pressed="true"] { border-color: var(--ink); background: var(--paper-2); }
+.opt span { font-family: var(--f-ui); font-size: 14px; color: var(--muted); display: block; }
+.verdict { margin-top: 18px; padding: 16px 18px; border-radius: 4px; background: var(--paper-2); border-left: 3px solid var(--gilt); }
+
+/* quote */
+.quote { background: var(--ink); color: var(--paper); text-align: center; }
+.quote blockquote { margin: 0 auto; max-width: 760px; font-family: var(--f-display); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 500; font-style: italic; line-height: 1.3; color: var(--paper); }
+.quote cite { display: block; margin-top: 18px; font-family: var(--f-ui); font-style: normal; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--ochre); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .quote { background: var(--card); } :root:not([data-theme="light"]) .quote blockquote { color: var(--ink); } }
+:root[data-theme="dark"] .quote { background: var(--card); } :root[data-theme="dark"] .quote blockquote { color: var(--ink); }
+
+/* author */
+.author .inner { display: grid; grid-template-columns: 200px 1fr; gap: 36px; align-items: start; }
+.author .inner > * { min-width: 0; }
+.monogram { width: 180px; height: 180px; border-radius: 50%; display: grid; place-items: center; font-family: var(--f-display); font-size: 3.4rem; font-weight: 700; color: var(--gilt); background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--ochre) 45%, var(--paper)), var(--paper-2)); border: 1px solid var(--rule); letter-spacing: .04em; }
+
+/* parishes */
+.parish-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 20px; }
+.price { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 22px; }
+.price .amt { font-family: var(--f-display); font-size: 2.6rem; font-weight: 800; color: var(--ink); line-height: 1; font-variant-numeric: tabular-nums; }
+.price .unit { font-family: var(--f-ui); font-size: 14px; color: var(--muted); }
+
+/* closing */
+.closing { text-align: center; background:
+  radial-gradient(35% 60% at 15% 50%, color-mix(in srgb, var(--wash-blue) 40%, transparent), transparent 70%),
+  radial-gradient(35% 60% at 85% 50%, color-mix(in srgb, var(--ochre) 45%, transparent), transparent 70%), var(--paper); }
+.closing .ctas { justify-content: center; }
+
+/* footer */
+footer { background: var(--paper-2); border-top: 1px solid var(--rule); font-family: var(--f-ui); font-size: 15px; }
+footer .inner { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px; }
+footer h4 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gilt); margin: 0 0 10px; }
+footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+footer a { color: var(--ink); text-decoration: none; } footer a:hover { color: var(--gilt); }
+.fine { color: var(--muted); font-size: 13px; margin-top: 30px; }
+.linkbtn { background: none; border: 0; padding: 0; font: inherit; color: var(--ink); cursor: pointer; text-align: left; }
+.linkbtn:hover { color: var(--gilt); }
+
+/* modal */
+.modal { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; background: rgba(19,26,44,.55); padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.dialog { position: relative; background: var(--card); color: var(--ink); width: 100%; max-width: 560px; border-radius: 8px; overflow: hidden; display: grid; grid-template-columns: 170px 1fr; box-shadow: 0 30px 70px rgba(0,0,0,.35); }
+.dialog > * { min-width: 0; }
+.dialog img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.dialog .body { padding: 26px 24px 22px; }
+.dialog h3 { font-size: 1.6rem; margin-bottom: 8px; }
+.dialog p { font-size: 1.05rem; }
+.field { display: grid; gap: 6px; margin-bottom: 12px; }
+.field label { font-family: var(--f-ui); font-size: 13px; color: var(--muted); }
+.field input { font: 17px var(--f-ui); padding: 11px 12px; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); width: 100%; }
+.close { position: absolute; top: 8px; right: 10px; background: none; border: 0; font-size: 28px; line-height: 1; color: var(--muted); cursor: pointer; padding: 4px 8px; }
+.small { font-family: var(--f-ui); font-size: 13px; color: var(--muted); margin-top: 10px; }
+.err { color: #a33a2a; font-family: var(--f-ui); font-size: 14px; }
+
+/* series notify */
+.series { margin-top: 22px; background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 20px 22px; }
+.series-q { font-weight: 700; margin-bottom: 10px; }
+.checks { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-bottom: 14px; font-family: var(--f-ui); font-size: 16px; }
+.checks label { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+.checks input { width: 18px; height: 18px; accent-color: var(--ink); }
+.series-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.series-row input { flex: 1 1 220px; min-width: 0; font: 17px var(--f-ui); padding: 11px 12px; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); }
+.series-done { margin: 12px 0 0; }
+.series-done p { margin-bottom: 12px; }
+#se-ch1 { margin: 10px 0 0; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* parish order form */
+.order { background: var(--card); border: 1px solid var(--rule); border-radius: 6px; padding: 22px; margin-top: 12px; }
+.order-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; }
+.order-grid > * { min-width: 0; }
+.order-grid .wide { grid-column: 1 / -1; }
+.order textarea { font: 17px var(--f-ui); padding: 11px 12px; border: 1px solid var(--rule); border-radius: 4px; background: var(--paper); color: var(--ink); width: 100%; resize: vertical; }
+.order-total { font-family: var(--f-ui); font-size: 15px; color: var(--muted); min-height: 1.2em; }
+.date-warn { font-family: var(--f-ui); font-size: 15px; line-height: 1.45; background: var(--paper-2); border-left: 3px solid var(--gilt); border-radius: 4px; padding: 12px 14px; margin: 8px 0 4px; }
+.order-done { background: var(--card); border: 1px solid var(--rule); border-left: 3px solid var(--gilt); border-radius: 6px; padding: 20px 22px; margin-top: 12px; }
+.order-done p:last-child { margin-bottom: 0; }
+
+@media (max-width: 760px) {
+  .order-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .band { padding-block: 52px; }
+  .hero .inner { grid-template-columns: 1fr; gap: 30px; }
+  .hero .cover-wrap { order: -1; }
+  .cover { max-width: 240px; }
+  .author .inner { grid-template-columns: 1fr; }
+  .monogram { width: 120px; height: 120px; font-size: 2.4rem; }
+  .reading { grid-template-columns: 56px 1fr; gap: 12px; }
+  .num { font-size: 2.4rem; }
+  .dialog { grid-template-columns: 1fr; }
+  .dialog img { display: none; }
+  .nav ul { gap: 14px; }
+}
+@media (prefers-reduced-motion: no-preference) { .dialog { animation: rise .35s ease-out; } @keyframes rise { from { transform: translateY(14px); opacity: .6; } to { transform: none; opacity: 1; } } }
+</style>
+
+<header>
+  <nav class="nav" aria-label="Main">
+    <a class="brand" href="#top">Is Mary Your Mother?</a>
+    <ul>
+      <li><a href="#top">Home</a></li>
+      <li><a href="#the-book">The Book</a></li>
+      <li><a href="#parishes">For Parishes</a></li>
+      <li><a href="#test">Take the Test</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+<section class="band hero">
+  <div class="inner">
+    <div>
+      <span class="badge">New · Paperback $9.99</span>
+      <h1 style="white-space:nowrap">Mary is your Mother.</h1>
+      <p class="lede">Can you prove it from Scripture without assuming it first?<br><b>This book does.</b></p>
+      <p style="margin-top:16px">From the first page of the Bible to the last, <i>Is Mary Your Mother?</i> reads Genesis 3:15 and Revelation 12 as one story: a Woman, her Son, her children, and a war you are already part of.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="https://www.amazon.com/s?k=Is+Mary+Your+Mother+Mark+Riese" target="_blank" rel="noopener">Get the book</a>
+        <button class="btn btn-ghost" type="button" data-open-signup>Read Chapter 1 free</button>
+      </div>
+      <a class="textlink" href="#test">Not sure you need it? Take the 30-second test.</a>
+    </div>
+    <div class="cover-wrap">
+      <img class="cover" src="cover.jpg" alt="Cover of Is Mary Your Mother? An Invitation to Belong in the Family of Jesus, by Mark Riese: a watercolor of Mary holding the infant Jesus" width="640" height="960">
+    </div>
+  </div>
+</section>
+
+<section class="band problem" id="the-book">
+  <div class="inner narrow">
+    <div class="eyebrow">The missing proof</div>
+    <h2>Verses often quoted assume she is our Mother. They don't prove it.</h2>
+    <p>Most Catholics already believe Mary is their Mother. Asked to show it from Scripture, they reach for the same two verses.</p>
+    <div class="verses">
+      <div class="verse"><q>Behold, your mother!</q><cite>John 19:27</cite><span class="tag">Given to one disciple</span></div>
+      <div class="verse"><q>Do whatever he tells you.</q><cite>John 2:5</cite><span class="tag">Spoken to servants at a wedding</span></div>
+    </div>
+    <p>To someone who already believes, these verses confirm it. To someone who doesn't, they hold only if you first grant that Mary is our Mother, and any argument that has not proven its premises first is logically invalid. It loses the argument even if it is true, and gives an excuse to reject the truth along with the argument.</p>
+    <p>This book starts where the proof starts: on the first page of the Bible, with a promise God makes to the Serpent.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="inner narrow">
+    <div class="eyebrow">Genesis 3:15</div>
+    <h2>Four ways to read one verse</h2>
+    <p><i>"I will put enmity between you and the woman, and between your seed and her seed; he shall bruise your head, and you shall bruise his heel."</i> Read it four ways, and every reading arrives at the same Woman.</p>
+    <div class="readings">
+      <div class="reading"><div class="num">1</div><div><div class="label">As it is written</div><h3>Two sides, and you belong to one</h3><p>God starts the war Himself: a Woman and her children against the Serpent and his. The two sides are two families of real people.</p></div></div>
+      <div class="reading"><div class="num">2</div><div><div class="label">Inside its scene</div><h3>The Woman cannot be Eve</h3><p>Eve had just taken the Serpent's side. If the Woman were Eve, there would be no sides, no war, no choice, and no real Savior.</p></div></div>
+      <div class="reading"><div class="num">3</div><div><div class="label">As the story unfolds</div><h3>The Mother every generation waited for</h3><p>Abraham's seed, David's seed, Isaiah's virgin who conceives a son. One Woman is asked, and she says Yes.</p></div></div>
+      <div class="reading"><div class="num">4</div><div><div class="label">From the end</div><h3>"The rest of her seed"</h3><p>In Revelation 12, John calls every Christian The Woman's seed, using the same Greek word as Genesis 3:15. The Woman whose Son crushed the Serpent's head is Mary.</p></div></div>
+    </div>
+    <p class="conclusion">Every reading ends at Mary, and <em>her children are real people.</em></p>
+  </div>
+</section>
+
+<section class="band" style="padding-top:0">
+  <div class="inner narrow">
+    <div class="eyebrow">Who this is for</div>
+    <h2>For anyone who has been told, "That's not in the Bible."</h2>
+    <div class="who">
+      <div><b>Catholics</b>who believe Mary is their Mother and want to show why, from Scripture.</div>
+      <div><b>Protestants</b>who were taught to leave her out, and want to discover where belonging begins.</div>
+      <div><b>Seekers</b>who have never read the Bible as one story with a family at its center.</div>
+      <div><b>Families</b>who want an answer simple enough to give their children.</div>
+    </div>
+  </div>
+</section>
+
+<section class="band test" id="test">
+  <div class="inner narrow">
+    <div class="eyebrow">Take the test</div>
+    <h2>Could you prove it?</h2>
+    <div class="quiz" id="quiz">
+      <p class="q">A friend who isn't a Christian asks you: <i>"Show me from the Bible that Mary is my mother."</i> Where do you open first?</p>
+      <div class="opts" role="group" aria-label="Choose a passage">
+        <button class="opt" type="button" data-k="a">"Behold, your mother!" <span>John 19:27</span></button>
+        <button class="opt" type="button" data-k="b">"Do whatever he tells you." <span>John 2:5</span></button>
+        <button class="opt" type="button" data-k="c">"All generations will call me blessed." <span>Luke 1:48</span></button>
+        <button class="opt" type="button" data-k="d">The Woman and her seed <span>Genesis 3:15 with Revelation 12:17</span></button>
+      </div>
+      <div class="verdict" id="verdict" hidden></div>
+    </div>
+  </div>
+</section>
+
+<section class="band quote">
+  <blockquote>If you are a Christian, you are one of her children.<cite>From Chapter 1, The Key to the Story</cite></blockquote>
+</section>
+
+<section class="band author">
+  <div class="inner">
+    <div class="monogram" aria-hidden="true">MR</div>
+    <div class="narrow">
+      <div class="eyebrow">About the author</div>
+      <h2>Mark Riese</h2>
+      <p>I was raised Protestant. I write on Scripture, the Church Fathers, and how to bring everyone into the family of Jesus. I wrote this book for a friend who is not a Christian, to show him, from the Bible alone, why Mary is the Mother of everyone who belongs to her Son.</p>
+      <p><i>Is Mary Your Mother?</i> is the first book in a series that makes the same argument to Protestant, Catholic, Muslim and young readers.</p>
+      <form class="series" id="series-form" novalidate>
+        <p class="series-q">Tell me when these editions are released:</p>
+        <div class="checks">
+          <label><input type="checkbox" name="edition" value="Catholic"> Catholic</label>
+          <label><input type="checkbox" name="edition" value="Protestant"> Protestant</label>
+          <label><input type="checkbox" name="edition" value="Muslim"> Muslim</label>
+          <label><input type="checkbox" name="edition" value="Young Readers"> Young Readers</label>
+        </div>
+        <div class="series-row">
+          <label class="sr" for="se-email">Email</label>
+          <input id="se-email" type="email" autocomplete="email" placeholder="Your email" required>
+          <button class="btn btn-primary" type="submit">Notify me</button>
+        </div>
+        <p class="small" id="se-ch1">You'll also get Chapter 1 free.</p>
+        <p class="err" id="se-err" hidden></p>
+        <div class="series-done" id="se-done" hidden>
+          <p><b>Thank you.</b> We'll email you when they're released. Your free Chapter 1 is ready.</p>
+          <button class="btn btn-primary" type="button" id="se-dl">Download Chapter 1 (PDF)</button>
+          <p class="small" id="se-dl-note"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="parishes" style="background:var(--paper-2)">
+  <div class="inner narrow">
+    <div class="eyebrow">For parishes</div>
+    <h2>Put it in every pew.</h2>
+    <p>The book is written to be read together: in a study group, a RCIA or OCIA class, a men's or women's group, or a parish-wide read.</p>
+    <div class="parish-grid">
+      <div class="price"><div class="amt">$9.99</div><div class="unit">single copy, paperback on Amazon</div></div>
+      <div class="price"><div class="amt">$6</div><div class="unit">per copy for parishes and groups, 25-copy minimum</div></div>
+    </div>
+    <h3 style="margin-top:30px" id="order">Request a parish order</h3>
+    <form class="order" id="order-form" novalidate>
+      <div class="order-grid">
+        <div class="field"><label for="po-parish">Parish or group</label><input id="po-parish" name="parish" required></div>
+        <div class="field"><label for="po-name">Your name</label><input id="po-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="po-email">Email</label><input id="po-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="po-phone">Phone (optional)</label><input id="po-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="po-qty">Number of copies (25 minimum)</label><input id="po-qty" name="copies" type="number" min="25" step="1" inputmode="numeric" required></div>
+        <div class="field"><label for="po-date">Needed by (optional)</label><input id="po-date" name="needed_by" type="date"></div>
+        <p class="date-warn wide" id="po-warn" role="status" hidden>Author direct orders are currently shipped and fulfilled by Amazon, which can take up to 5 weeks. To guarantee delivery by the time you need, order on <a href="https://www.amazon.com/s?k=Is+Mary+Your+Mother+Mark+Riese" target="_blank" rel="noopener">Amazon.com</a>.</p>
+        <div class="field wide"><label for="po-addr">Shipping address</label><textarea id="po-addr" name="address" rows="3" autocomplete="street-address" required></textarea></div>
+        <div class="field wide"><label for="po-notes">Notes (optional)</label><textarea id="po-notes" name="notes" rows="3" placeholder="Study group, RCIA/OCIA class, parish-wide read…"></textarea></div>
+      </div>
+      <p class="order-total" id="po-total" aria-live="polite"></p>
+      <p class="err" id="po-err" hidden></p>
+      <button class="btn btn-primary" type="submit">Send order request</button>
+      <p class="small">We'll reply by email to confirm the order, the total and shipping.</p>
+    </form>
+    <div class="order-done" id="order-done" hidden>
+      <p><b>Thank you.</b> Your order request has been sent. We'll reply by email to confirm.</p>
+      <p class="small" id="order-fallback" hidden></p>
+    </div>
+  </div>
+</section>
+
+<section class="band closing">
+  <div class="inner narrow">
+    <h2>Start on the first page of the Bible.</h2>
+    <p>Read the first chapter free, and see the word Genesis 3:15 and Revelation 12:17 share.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href="https://www.amazon.com/s?k=Is+Mary+Your+Mother+Mark+Riese" target="_blank" rel="noopener">Get the book</a>
+      <button class="btn btn-ghost" type="button" data-open-signup>Read Chapter 1 free</button>
+    </div>
+    <a class="textlink" href="#parishes">Ordering for a group or parish? See bulk pricing.</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="band" style="padding-block:44px">
+  <div class="inner">
+    <div><h4>Is Mary Your Mother?</h4><p style="margin:0">An Invitation to Belong in the Family of Jesus<br>by Mark Riese</p></div>
+    <div><h4>For parishes</h4><ul><li><a href="#parishes">Bulk orders</a></li><li><a href="#parishes">Study groups</a></li><li><a href="#test">Take the test</a></li></ul></div>
+    <div><h4>Downloads</h4><ul><li><button class="linkbtn" type="button" data-open-signup>Chapter 1 (free PDF)</button></li></ul></div>
+    <div><h4>Contact</h4><ul><li>twelvestarspress@gmail.com</li><li><a class="btn btn-primary" style="margin-top:8px;color:var(--btn-ink)" href="https://www.amazon.com/s?k=Is+Mary+Your+Mother+Mark+Riese" target="_blank" rel="noopener">Buy the book</a></li></ul></div>
+  </div>
+  <div class="inner"><p class="fine">© 2026 Mark Riese. Scripture quotations from the Revised Standard Version.</p></div>
+</footer>
+
+<div class="modal" id="signup" hidden role="dialog" aria-modal="true" aria-labelledby="signup-title">
+  <div class="dialog">
+    <img src="mary.jpg" alt="">
+    <div class="body">
+      <button class="close" type="button" aria-label="Close" id="signup-close">×</button>
+      <div class="eyebrow" style="margin-bottom:6px">Free chapter</div>
+      <h3 id="signup-title">Read Chapter 1 free</h3>
+      <div id="signup-form-wrap">
+        <p>Mary is your Mother. Chapter 1 shows the one word in Scripture that proves it. Enter your email and it's yours.</p>
+        <form id="signup-form" novalidate>
+          <div class="field"><label for="su-name">First name</label><input id="su-name" name="first_name" autocomplete="given-name"></div>
+          <div class="field"><label for="su-email">Email</label><input id="su-email" name="email" type="email" autocomplete="email" required></div>
+          <p class="err" id="su-err" hidden></p>
+          <button class="btn btn-primary" type="submit" style="width:100%">Send me Chapter 1</button>
+          <p class="small">No spam. Occasional news about the book and the series.</p>
+        </form>
+      </div>
+      <div id="signup-done" hidden>
+        <p><b>Thank you.</b> Your chapter is ready.</p>
+        <button class="btn btn-primary" type="button" id="dl-btn" style="width:100%">Download Chapter 1 (PDF)</button>
+        <p class="small" id="dl-note"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---- Settings for the live site ----
+   EMAIL_FORM_ACTION: the form URL from your email service (MailerLite, Kit/ConvertKit, Mailchimp).
+   Leave empty in the Claude preview. */
+const EMAIL_FORM_ACTION = "";
+const CHAPTER_URL = "chapter-1.pdf";
+const POPUP_DELAY_MS = 6000;
+
+const modal = document.getElementById('signup');
+let lastFocus = null;
+function openSignup() { lastFocus = document.activeElement; modal.hidden = false; document.getElementById('su-email').focus(); }
+function closeSignup() { modal.hidden = true; try { localStorage.setItem('imym_popup_seen', '1'); } catch (e) {} if (lastFocus) lastFocus.focus(); }
+document.querySelectorAll('[data-open-signup]').forEach(b => b.addEventListener('click', openSignup));
+document.getElementById('signup-close').addEventListener('click', closeSignup);
+modal.addEventListener('click', e => { if (e.target === modal) closeSignup(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) closeSignup(); });
+
+let seen = false; try { seen = localStorage.getItem('imym_popup_seen') === '1'; } catch (e) {}
+if (!seen) setTimeout(() => { if (modal.hidden) openSignup(); }, POPUP_DELAY_MS);
+
+document.getElementById('signup-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('su-email').value.trim();
+  const name = document.getElementById('su-name').value.trim();
+  const err = document.getElementById('su-err');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = 'Please enter a valid email address.'; err.hidden = false; return; }
+  err.hidden = true;
+  if (EMAIL_FORM_ACTION) {
+    try { await fetch(EMAIL_FORM_ACTION, { method: 'POST', mode: 'no-cors', body: new URLSearchParams({ email, first_name: name, 'fields[email]': email, 'fields[name]': name }) }); } catch (e2) {}
+  }
+  try { localStorage.setItem('imym_popup_seen', '1'); } catch (e3) {}
+  document.getElementById('signup-form-wrap').hidden = true;
+  document.getElementById('signup-done').hidden = false;
+  document.getElementById('dl-btn').focus();
+});
+
+document.getElementById('dl-btn').addEventListener('click', async () => {
+  const note = document.getElementById('dl-note');
+  const downloads = window.claude?.use ? await window.claude.use('downloads') : null;
+  if (downloads) {
+    try {
+      const res = await fetch(CHAPTER_URL); const blob = await res.blob();
+      await downloads.save({ filename: 'Is Mary Your Mother - Chapter 1.pdf', data: blob });
+      note.textContent = 'Saved. Enjoy the chapter.';
+    } catch (e) { note.textContent = 'The download was cancelled or could not start. Try again.'; }
+  } else {
+    window.location.href = CHAPTER_URL;
+  }
+});
+
+/* ---- Parish order requests ----
+   ORDER_EMAIL: where order requests go.
+   ORDER_FORM_ACTION: the endpoint from a form service (Formspree, Web3Forms, Basin)
+   once the site is hosted; it emails each request to ORDER_EMAIL with no email app needed.
+   Until it is set, the form opens the visitor's email app with the request filled in. */
+const ORDER_EMAIL = "twelvestarspress@gmail.com";
+const ORDER_FORM_ACTION = "https://api.web3forms.com/submit";
+const WEB3FORMS_KEY = "ce947cb1-8a61-4bae-9149-71f2c2767b4a";
+const PARISH_PRICE = 6;
+const qtyEl = document.getElementById('po-qty');
+qtyEl.addEventListener('input', () => {
+  const n = parseInt(qtyEl.value, 10);
+  document.getElementById('po-total').textContent = n >= 25 ? `${n} copies × $${PARISH_PRICE} = $${(n * PARISH_PRICE).toLocaleString()} before shipping` : '';
+});
+const dateEl = document.getElementById('po-date');
+function checkNeededBy() {
+  const warn = document.getElementById('po-warn');
+  if (!dateEl.value) { warn.hidden = true; return; }
+  const need = new Date(dateEl.value + 'T00:00:00');
+  const soonest = new Date(); soonest.setHours(0, 0, 0, 0); soonest.setDate(soonest.getDate() + 35);
+  warn.hidden = need >= soonest;
+}
+dateEl.addEventListener('input', checkNeededBy);
+dateEl.addEventListener('change', checkNeededBy);
+document.getElementById('order-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const f = e.target, err = document.getElementById('po-err');
+  const v = k => (f.elements[k].value || '').trim();
+  const n = parseInt(v('copies'), 10);
+  let msg = '';
+  if (!v('parish')) msg = 'Please enter your parish or group.';
+  else if (!v('name')) msg = 'Please enter your name.';
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email'))) msg = 'Please enter a valid email address.';
+  else if (!(n >= 25)) msg = 'Parish orders start at 25 copies.';
+  else if (!v('address')) msg = 'Please enter a shipping address.';
+  if (msg) { err.textContent = msg; err.hidden = false; return; }
+  err.hidden = true;
+  const lines = [
+    'Parish or group: ' + v('parish'), 'Name: ' + v('name'), 'Email: ' + v('email'),
+    'Phone: ' + (v('phone') || '-'), 'Copies: ' + n + ' (at $' + PARISH_PRICE + ' = $' + (n * PARISH_PRICE) + ' before shipping)',
+    'Needed by: ' + (v('needed_by') || '-'), 'Shipping address:', v('address'), 'Notes: ' + (v('notes') || '-')
+  ];
+  const subject = 'Parish order request: ' + v('parish') + ' (' + n + ' copies)';
+  let sent = false;
+  if (ORDER_FORM_ACTION) {
+    try {
+      const r = await fetch(ORDER_FORM_ACTION, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ access_key: WEB3FORMS_KEY, subject, from_name: 'Is Mary Your Mother? website', email: v('email'), 'Parish or group': v('parish'), 'Name': v('name'), 'Phone': v('phone') || '-', 'Copies': n + ' ($' + (n * PARISH_PRICE) + ' before shipping)', 'Needed by': v('needed_by') || '-', 'Shipping address': v('address'), 'Notes': v('notes') || '-' }) });
+      const j = await r.json().catch(() => ({}));
+      sent = r.ok && j.success !== false;
+    } catch (e2) { sent = false; }
+  }
+  const fb = document.getElementById('order-fallback');
+  if (!sent) {
+    const href = 'mailto:' + ORDER_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+    try { const a = document.createElement('a'); a.href = href; a.target = '_blank'; a.rel = 'noopener'; document.body.appendChild(a); a.click(); a.remove(); } catch (e3) {}
+    document.querySelector('#order-done p').innerHTML = '<b>Thank you.</b> Your email app should open with the order request filled in. Press send, and we\u2019ll reply to confirm.';
+    fb.textContent = 'If no email opened, send your request to ' + ORDER_EMAIL + '.';
+    fb.hidden = false;
+  }
+  f.hidden = true;
+  document.getElementById('order-done').hidden = false;
+});
+
+/* ---- Series release notices ---- */
+document.getElementById('series-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('se-email').value.trim();
+  const editions = [...document.querySelectorAll('#series-form input[name=edition]:checked')].map(c => c.value);
+  const err = document.getElementById('se-err');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = 'Please enter a valid email address.'; err.hidden = false; return; }
+  err.hidden = true;
+  if (EMAIL_FORM_ACTION) {
+    try { await fetch(EMAIL_FORM_ACTION, { method: 'POST', mode: 'no-cors', body: new URLSearchParams({ email, 'fields[email]': email, editions: editions.join(', '), 'fields[editions]': editions.join(', ') }) }); } catch (e2) {}
+  }
+  document.querySelector('#series-form .series-row').hidden = true;
+  document.querySelector('#series-form .checks').hidden = true;
+  document.querySelector('#series-form .series-q').hidden = true;
+  document.getElementById('se-ch1').hidden = true;
+  try { localStorage.setItem('imym_popup_seen', '1'); } catch (e4) {}
+  document.getElementById('se-done').hidden = false;
+  document.getElementById('se-dl').focus();
+});
+document.getElementById('se-dl').addEventListener('click', async () => {
+  const note = document.getElementById('se-dl-note');
+  const downloads = window.claude?.use ? await window.claude.use('downloads') : null;
+  if (downloads) {
+    try {
+      const res = await fetch(CHAPTER_URL); const blob = await res.blob();
+      await downloads.save({ filename: 'Is Mary Your Mother - Chapter 1.pdf', data: blob });
+      note.textContent = 'Saved. Enjoy the chapter.';
+    } catch (e) { note.textContent = 'The download was cancelled or could not start. Try again.'; }
+  } else {
+    window.location.href = CHAPTER_URL;
+  }
+});
+
+/* ---- The test ---- */
+const V = {
+  a: '<b>It’s the right verse, read second.</b> On its own, it gives His Mother to one disciple, and your friend will ask why that makes her <i>their</i> mother. The book will show you how to prove that this declaration is John telling us that he was the first of the rest of her children.',
+  b: '<b>It assumes what it is offered to prove.</b> Mary speaks to servants at a wedding in Cana. Reading it as her word to the whole Church assumes that she is the Church’s Mother. Until you have proven it, your friend has no reason to accept it.',
+  c: '<b>It honors her, but it doesn’t make her their mother.</b> Calling someone blessed is not the same as being their child. Your friend will see the gap at once.',
+  d: '<b>This is where the proof begins.</b> Starting at Genesis 3:15 with The Woman and her Seed, continuing to Revelation 12:17 where Christians are "the rest of her seed" with the same word, this book will show you how there is The Woman, she is a Mother to all who are in the family of God through Jesus Christ, and her name is Mary.'
+};
+document.querySelectorAll('.opt').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('.opt').forEach(o => o.setAttribute('aria-pressed', o === btn ? 'true' : 'false'));
+  const v = document.getElementById('verdict');
+  v.innerHTML = V[btn.dataset.k] + '<div class="ctas" style="margin-top:14px"><button class="btn btn-primary" type="button" id="quiz-cta">Read Chapter 1 free</button></div>';
+  v.hidden = false;
+  document.getElementById('quiz-cta').addEventListener('click', openSignup);
+}));
+</script>
+
+</body>
+</html>
