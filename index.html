@@ -20,6 +20,7 @@
 <style>
 /* Layout: one column of stacked bands like a book's own pages: cover hero, the problem, four readings, who it's for, a line from the book, the author, closing call, footer. Palette taken from the cover: cream paper, navy title ink, gilt-brown subtitle, ochre and dusty-blue watercolor. */
 :root {
+  color-scheme: light;
   --paper: #f7f1e5;
   --paper-2: #efe5d1;
   --card: #fffaf0;
@@ -34,12 +35,6 @@
   --f-body: "EB Garamond", Garamond, Georgia, serif;
   --f-ui: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
 }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --paper: #131a2c; --paper-2: #18213a; --card: #1c2642; --ink: #ede5d3; --muted: #aab3c9;
-  --gilt: #dcb46a; --ochre: #8a6a35; --wash-blue: #334a76; --rule: #2c3858; --btn-ink: #131a2c; color-scheme: dark } }
-:root[data-theme="dark"] {
-  --paper: #131a2c; --paper-2: #18213a; --card: #1c2642; --ink: #ede5d3; --muted: #aab3c9;
-  --gilt: #dcb46a; --ochre: #8a6a35; --wash-blue: #334a76; --rule: #2c3858; --btn-ink: #131a2c; color-scheme: dark }
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -126,13 +121,11 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .quote { background: var(--ink); color: var(--paper); text-align: center; }
 .quote blockquote { margin: 0 auto; max-width: 760px; font-family: var(--f-display); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 500; font-style: italic; line-height: 1.3; color: var(--paper); }
 .quote cite { display: block; margin-top: 18px; font-family: var(--f-ui); font-style: normal; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--ochre); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .quote { background: var(--card); } :root:not([data-theme="light"]) .quote blockquote { color: var(--ink); } }
-:root[data-theme="dark"] .quote { background: var(--card); } :root[data-theme="dark"] .quote blockquote { color: var(--ink); }
 
 /* author */
-.author .inner { display: grid; grid-template-columns: 200px 1fr; gap: 36px; align-items: start; }
+.author .inner { display: block; }
+.author .narrow { margin: 0 auto; }
 .author .inner > * { min-width: 0; }
-.monogram { width: 180px; height: 180px; border-radius: 50%; display: grid; place-items: center; font-family: var(--f-display); font-size: 3.4rem; font-weight: 700; color: var(--gilt); background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--ochre) 45%, var(--paper)), var(--paper-2)); border: 1px solid var(--rule); letter-spacing: .04em; }
 
 /* parishes */
 .parish-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 20px; }
@@ -204,7 +197,6 @@ footer a { color: var(--ink); text-decoration: none; } footer a:hover { color: v
   .hero .cover-wrap { order: -1; }
   .cover { max-width: 240px; }
   .author .inner { grid-template-columns: 1fr; }
-  .monogram { width: 120px; height: 120px; font-size: 2.4rem; }
   .reading { grid-template-columns: 56px 1fr; gap: 12px; }
   .num { font-size: 2.4rem; }
   .dialog { grid-template-columns: 1fr; }
@@ -312,7 +304,6 @@ footer a { color: var(--ink); text-decoration: none; } footer a:hover { color: v
 
 <section class="band author">
   <div class="inner">
-    <div class="monogram" aria-hidden="true">MR</div>
     <div class="narrow">
       <div class="eyebrow">About the author</div>
       <h2>Mark Riese</h2>
