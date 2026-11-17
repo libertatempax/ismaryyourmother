@@ -154,6 +154,11 @@ footer a { color: var(--ink); text-decoration: none; } footer a:hover { color: v
 .share-btn { padding: 8px 16px; font-size: .95rem; }
 .share-ok { min-height: 1.2em; margin: 6px 0 0; color: var(--gilt); }
 .closing .share-row { justify-content: center; }
+.social { margin-top: 18px; }
+.social-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.closing .social-row { justify-content: center; }
+.sbtn { display: inline-block; padding: 7px 14px; border: 1px solid var(--rule); border-radius: 999px; background: var(--card, #fff); color: var(--ink); font-family: var(--f-ui); font-size: .9rem; text-decoration: none; cursor: pointer; }
+.sbtn:hover { border-color: var(--gilt); color: var(--gilt); }
 
 /* modal */
 .modal { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; background: rgba(19,26,44,.55); padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
@@ -236,7 +241,20 @@ footer a { color: var(--ink); text-decoration: none; } footer a:hover { color: v
       <div class="ctas">
         <a class="btn btn-primary" href="https://www.amazon.com/dp/B0HMVGVLLR" target="_blank" rel="noopener">Get the book</a>
         <button class="btn btn-ghost" type="button" data-open-signup>Read Chapter 1 free</button>
+        <a class="btn btn-ghost" href="chapter-1.pdf" download>Download Chapter 1</a>
       </div>
+      <div class="social" data-social>
+      <p class="small share-lab">Share Chapter 1 with family and friends</p>
+      <div class="social-row">
+        <a class="sbtn" data-net="facebook" target="_blank" rel="noopener">Facebook</a>
+        <a class="sbtn" data-net="x" target="_blank" rel="noopener">X</a>
+        <a class="sbtn" data-net="whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="sbtn" data-net="email">Email</a>
+        <a class="sbtn" data-net="text">Text</a>
+        <button class="sbtn" type="button" data-net="copy">Copy link</button>
+      </div>
+      <p class="small share-ok" aria-live="polite"></p>
+    </div>
       <a class="textlink" href="#test">Not sure you need it? Take the 30-second test.</a>
     </div>
     <div class="cover-wrap">
@@ -390,15 +408,20 @@ footer a { color: var(--ink); text-decoration: none; } footer a:hover { color: v
     <div class="ctas">
       <a class="btn btn-primary" href="https://www.amazon.com/dp/B0HMVGVLLR" target="_blank" rel="noopener">Get the book</a>
       <button class="btn btn-ghost" type="button" data-open-signup>Read Chapter 1 free</button>
+      <a class="btn btn-ghost" href="chapter-1.pdf" download>Download Chapter 1</a>
     </div>
-    <div class="share" data-share-box>
-          <p class="small share-lab">Share Chapter 1 with family and friends</p>
-          <div class="share-row">
-            <button class="btn btn-ghost share-btn" type="button" data-share hidden>Share</button>
-            <button class="btn btn-ghost share-btn" type="button" data-copy>Copy link</button>
-          </div>
-          <p class="small share-ok" aria-live="polite"></p>
-        </div>
+      <div class="social" data-social>
+      <p class="small share-lab">Share Chapter 1 with family and friends</p>
+      <div class="social-row">
+        <a class="sbtn" data-net="facebook" target="_blank" rel="noopener">Facebook</a>
+        <a class="sbtn" data-net="x" target="_blank" rel="noopener">X</a>
+        <a class="sbtn" data-net="whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="sbtn" data-net="email">Email</a>
+        <a class="sbtn" data-net="text">Text</a>
+        <button class="sbtn" type="button" data-net="copy">Copy link</button>
+      </div>
+      <p class="small share-ok" aria-live="polite"></p>
+    </div>
     <a class="textlink" href="#parishes">Ordering for a group or parish? See bulk pricing.</a>
   </div>
 </section>
@@ -470,7 +493,7 @@ let seen = false; try { seen = localStorage.getItem('imym_popup_seen') === '1'; 
 if (!seen) setTimeout(() => { if (modal.hidden) openSignup(); }, POPUP_DELAY_MS);
 
 /* ---- Share Chapter 1 ---- */
-const SHARE_URL = "https://www.ismaryyourmother.com/#chapter-1";
+const SHARE_URL = "https://www.ismaryyourmother.com/chapter-1.pdf";
 const SHARE_TEXT = "Is Mary Your Mother? Read Chapter 1 free:";
 document.querySelectorAll('[data-share-box]').forEach(box => {
   const ok = box.querySelector('.share-ok');
@@ -489,6 +512,26 @@ document.querySelectorAll('[data-share-box]').forEach(box => {
   });
 });
 if (location.hash === '#chapter-1') setTimeout(openSignup, 300);
+document.querySelectorAll('[data-social]').forEach(box => {
+  const ok = box.querySelector('.share-ok');
+  const u = encodeURIComponent(SHARE_URL), t = encodeURIComponent(SHARE_TEXT), both = encodeURIComponent(SHARE_TEXT + ' ' + SHARE_URL);
+  const links = {
+    facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + u,
+    x: 'https://twitter.com/intent/tweet?text=' + t + '&url=' + u,
+    whatsapp: 'https://wa.me/?text=' + both,
+    email: 'mailto:?subject=' + encodeURIComponent('Is Mary Your Mother? Chapter 1') + '&body=' + both,
+    text: 'sms:?&body=' + both
+  };
+  box.querySelectorAll('a[data-net]').forEach(a => a.href = links[a.dataset.net]);
+  box.querySelector('[data-net="copy"]').addEventListener('click', async () => {
+    let done = false;
+    try { await navigator.clipboard.writeText(SHARE_URL); done = true; } catch (e) {
+      const ta = document.createElement('textarea'); ta.value = SHARE_URL; document.body.appendChild(ta); ta.select();
+      try { done = document.execCommand('copy'); } catch (e2) {} ta.remove();
+    }
+    ok.textContent = done ? 'Link copied. Paste it in a text, email or post.' : SHARE_URL;
+  });
+});
 
 document.getElementById('signup-form').addEventListener('submit', async (e) => {
   e.preventDefault();
